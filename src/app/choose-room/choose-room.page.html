@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons (click)="logoutUser()" slot="start"><ion-icon size="large" name="exit"></ion-icon></ion-buttons>
+    <ion-title>Choose a room</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-textarea [(ngModel)]="username" placeholder="Choose a username...">
+
+    </ion-textarea>
+    <ion-textarea [(ngModel)]="roomName" placeholder="Choose a room name...">
+
+    </ion-textarea>
+  </ion-card>
+  <ion-card>
+  <ion-button (click)="setUsernamePassword()">Connect !</ion-button>
+  </ion-card>
+</ion-content>

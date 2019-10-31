@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary" style="text-align: center">
+      <ion-buttons (click)="logoutUser()" slot="start"><ion-icon size="large" name="exit"></ion-icon></ion-buttons>
+    <ion-title>
+      Room : {{roomName}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row *ngFor="let message of messagesList">
+        <ion-col size="9" *ngIf="name!==message.name" class="message other-message">
+            <b>{{message.name}}</b><br>
+            <span>{{message.message}}</span>
+        </ion-col>
+        <ion-col size="9" offset="3" *ngIf="name===message.name" class="message my-message">
+            <b>{{message.name}}</b><br>
+            <span>{{message.message}}</span>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer color="light">
+    <ion-row class="ion-align-items-center ion-no-padding">
+      <ion-col size="10">
+        <textarea autosize class="message-input" maxRows="3" placeholder="Type here..." [(ngModel)]="newmessage"></textarea>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button expand="block" fill="clear" class="msg-btn" color="primary" [disabled]="newmessage === ''" (click)="send()"><ion-icon name="ios-send"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+</ion-footer>
